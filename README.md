@@ -8,8 +8,8 @@ _React, Material UI, and Ant Design components_
 
 ## Quick Links
 
-- [Docs](https://solana-labs.github.io/wallet-adapter/)
-- [Example](https://solana-labs.github.io/wallet-adapter/example/)
+-   [Docs](https://solana-labs.github.io/wallet-adapter/)
+-   [Example](https://solana-labs.github.io/wallet-adapter/example/)
 
 ## Packages
 
@@ -71,29 +71,28 @@ import {
     getSolongWallet,
     getTorusWallet,
 } from '@solana/wallet-adapter-wallets';
-import {
-    WalletModalProvider,
-    WalletDisconnectButton,
-    WalletMultiButton
-} from '@solana/wallet-adapter-react-ui';
+import { WalletModalProvider, WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 
 export const Wallet: FC = () => {
     // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking --
     // Only the wallets you want to instantiate here will be compiled into your application
-    const wallets = useMemo(() => [
-        getPhantomWallet(),
-        getSolflareWallet(),
-        getTorusWallet({
-            options: { clientId: 'Get a client ID @ https://developer.tor.us' }
-        }),
-        getLedgerWallet(),
-        getSolongWallet(),
-        getMathWallet(),
-        getSolletWallet(),
-        getCoin98Wallet(),
-        getBitpieWallet(),
-    ], []);
+    const wallets = useMemo(
+        () => [
+            getPhantomWallet(),
+            getSolflareWallet(),
+            getTorusWallet({
+                options: { clientId: 'Get a client ID @ https://developer.tor.us' },
+            }),
+            getLedgerWallet(),
+            getSolongWallet(),
+            getMathWallet(),
+            getSolletWallet(),
+            getCoin98Wallet(),
+            getBitpieWallet(),
+        ],
+        []
+    );
 
     // Set to 'devnet' | 'testnet' | 'mainnet-beta' or provide a custom RPC endpoint
     const endpoint = useMemo(() => clusterApiUrl('devnet'), []);
